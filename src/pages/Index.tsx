@@ -1,3 +1,4 @@
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import HeroSection from "@/components/HeroSection";
 import OurStorySection from "@/components/OurStorySection";
 import OurVisionSection from "@/components/OurVisionSection";
@@ -9,8 +10,9 @@ import CustomerExperienceSection from "@/components/CustomerExperienceSection";
 import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
+  useScrollAnimation();
   return (
-    <div className="bg-background space-y-16">
+    <div className="bg-background space-y-2">
       <HeroSection />
       <OurStorySection />
       <OurVisionSection />

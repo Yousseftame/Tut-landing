@@ -11,7 +11,7 @@ const OurStorySection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 min-h-[calc(100vh-60px)]">
         {/* Left: Title + Text */}
         <div className="lg:col-span-2 px-8 md:px-16 py-12 flex flex-col justify-start">
-          <h2 className="section-title mb-12">Our Story</h2>
+          <h2 className="section-title mb-12 animate-on-scroll">Our Story</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
             <div className="body-text">
@@ -26,11 +26,11 @@ const OurStorySection = () => {
         </div>
 
         {/* Right: Image */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block overflow-hidden">
           <img
             src={storyImage}
             alt="TUT Store crafts and products"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover gallery-image"
           />
         </div>
       </div>

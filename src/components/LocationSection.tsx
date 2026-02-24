@@ -9,7 +9,7 @@ const LocationSection = () => {
       </div>
 
       <div className="px-8 md:px-16 py-4">
-        <h2 className="section-title mb-8">Location</h2>
+        <h2 className="section-title mb-8 animate-on-scroll">Location</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
           {/* Google Maps Embed */}
@@ -29,7 +29,7 @@ const LocationSection = () => {
             <img
               src={locationStore}
               alt="TUT Store exterior at night"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover gallery-image"
             />
           </div>
 

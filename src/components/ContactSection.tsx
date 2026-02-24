@@ -7,7 +7,7 @@ const ContactSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-screen">
         {/* Left: Contact info */}
         <div className="px-8 md:px-16 py-16 flex flex-col justify-center items-center text-center">
-          <h2 className="section-title mb-12">CONTACT US</h2>
+          <h2 className="section-title mb-12 animate-on-scroll">CONTACT US</h2>
 
           <div className="mb-10">
             <h3 className="text-lg font-heading font-semibold text-primary tracking-wide mb-1">
@@ -40,11 +40,11 @@ const ContactSection = () => {
         </div>
 
         {/* Right: Image */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block overflow-hidden">
           <img
             src={contactImage}
             alt="TUT Store products"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover gallery-image"
           />
         </div>
       </div>

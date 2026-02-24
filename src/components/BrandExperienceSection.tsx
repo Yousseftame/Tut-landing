@@ -12,17 +12,17 @@ const BrandExperienceSection = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr_auto] gap-0 min-h-[calc(100vh-60px)]">
         {/* Left image - large */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block overflow-hidden">
           <img
             src={brandExp1}
             alt="Brand experience"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover gallery-image"
           />
         </div>
 
         {/* Center content */}
         <div className="px-8 md:px-16 py-12 flex flex-col justify-center relative">
-          <h2 className="section-title mb-8 text-4xl md:text-5xl">
+          <h2 className="section-title mb-8 text-4xl md:text-5xl animate-on-scroll">
             The Brand Experience
           </h2>
 
