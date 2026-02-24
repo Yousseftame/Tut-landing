@@ -41,7 +41,7 @@ const CustomerExperienceSection = () => {
           <img
             src={custExp2}
             alt="Store display"
-            className="w-56 xl:w-72 h-80 xl:h-96 object-cover"
+            className="w-72 xl:w-96 h-[28rem] xl:h-[34rem] object-cover"
           />
         </div>
       </div>

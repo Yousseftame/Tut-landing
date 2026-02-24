@@ -12,16 +12,18 @@ import ContactSection from "@/components/ContactSection";
 const Index = () => {
   useScrollAnimation();
   return (
-    <div className="bg-background space-y-2">
+    <div className="bg-background">
       <HeroSection />
       <OurStorySection />
       <OurVisionSection />
       <LocationSection />
       <TheStoreSection />
       <GallerySection />
-      <BrandExperienceSection />
-      <CustomerExperienceSection />
-      <ContactSection />
+      <div className="space-y-4">
+        <BrandExperienceSection />
+        <CustomerExperienceSection />
+        <ContactSection />
+      </div>
     </div>
   );
 };
