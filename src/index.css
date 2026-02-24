@@ -73,7 +73,7 @@
 
   .section-title {
     font-family: 'Bebas Neue', sans-serif;
-    @apply text-3xl md:text-4xl lg:text-5xl font-normal text-primary tracking-wide;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-primary tracking-wide;
   }
 
   .gallery-image {

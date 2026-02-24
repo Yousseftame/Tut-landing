@@ -25,11 +25,11 @@ const ContactSection = () => {
             <h3 className="text-lg font-heading font-semibold text-primary tracking-wide mb-1">
               TUT CONCEPT STORE
             </h3>
-            <p className="body-text">
+            <p className="body-text text-center">
               Andrea Papandreou 3<br />
               Glyfada, Athens
             </p>
-            <p className="body-text mt-1">+3 21 0898 3475</p>
+            <p className="body-text text-center mt-1">+3 21 0898 3475</p>
           </div>
 
           <img
