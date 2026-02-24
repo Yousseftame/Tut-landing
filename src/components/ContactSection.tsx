@@ -6,7 +6,7 @@ const ContactSection = () => {
     <section className="page-section bg-background">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-screen">
         {/* Left: Contact info */}
-        <div className="px-8 md:px-16 py-16 flex flex-col justify-center">
+        <div className="px-8 md:px-16 py-16 flex flex-col justify-center items-center text-center">
           <h2 className="section-title mb-12">CONTACT US</h2>
 
           <div className="mb-10">
