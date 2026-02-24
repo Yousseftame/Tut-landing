@@ -33,7 +33,7 @@ const CustomerExperienceSection = () => {
             </p>
           </div>
 
-          <img src={tutLogo} alt="TUT logo" className="absolute bottom-6 right-6 h-8 md:h-10 opacity-80" />
+          
         </div>
 
         {/* Right image - smaller */}
@@ -41,7 +41,7 @@ const CustomerExperienceSection = () => {
           <img
             src={custExp2}
             alt="Store display"
-            className="w-48 xl:w-56 h-72 xl:h-80 object-cover"
+            className="w-56 xl:w-72 h-80 xl:h-96 object-cover"
           />
         </div>
       </div>
