@@ -34,7 +34,7 @@ const LocationSection = () => {
           </div>
 
           {/* Text */}
-          <div className="body-text flex flex-col justify-between h-[400px] md:h-[500px]">
+          <div className="body-text flex flex-col gap-4 h-auto lg:h-[400px] lg:md:h-[500px] lg:justify-between">
             <p>
               TUT is strategically located in the prime retail district of Glyfada, at Andrea Papandreou 3 in Athens, occupying 300 sqm across two levels. Positioned in one of the area's most vibrant shopping destinations, the store benefits from high-quality foot traffic driven by affluent residents, destination shoppers, and international visitors.
             </p>
