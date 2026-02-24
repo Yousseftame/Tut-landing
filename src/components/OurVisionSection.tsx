@@ -12,14 +12,14 @@ const OurVisionSection = () => {
         <img
           src={visionImage}
           alt="TUT Store interior"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover gallery-image"
         />
       </div>
 
       {/* Vision text */}
       <div className="px-8 md:px-16 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-          <h2 className="section-title">Our Vision</h2>
+          <h2 className="section-title animate-on-scroll">Our Vision</h2>
           <div className="lg:col-span-2 body-text max-w-3xl">
             TUT is a luxury concept store dedicated to celebrating exceptional Egyptian talent and craftsmanship. Our vision is to create an immersive retail experience where visitors can discover a carefully curated selection of ready-to-wear, fine jewelry, distinctive accessories, and elevated home décor within a refined and thoughtfully designed setting.
             <br /><br />

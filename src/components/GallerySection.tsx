@@ -13,11 +13,11 @@ const GallerySection = () => {
   return (
     <>
       {images.map((img, i) => (
-        <section key={i} className="relative w-full h-screen">
+        <section key={i} className="relative w-full h-screen overflow-hidden">
           <img
             src={img}
             alt={`Store view ${i + 1}`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover gallery-image"
           />
         </section>
       ))}

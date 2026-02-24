@@ -19,7 +19,7 @@ const TheStoreSection = () => {
 
         {/* Content box */}
         <div className="relative z-10 ml-6 md:ml-12 lg:ml-16 my-8 max-w-xl bg-white/90 backdrop-blur-sm p-8 md:p-10 lg:p-12">
-          <h2 className="section-title mb-6">The Store</h2>
+          <h2 className="section-title mb-6 animate-on-scroll">The Store</h2>
 
           <div className="body-text mb-4 text-sm leading-relaxed">
             Spanning two thoughtfully designed floors, TUT unfolds as a journey through contemporary Egyptian creativity. Set within a modern, minimalist interior, the space is intentionally curated to let each piece breathe—allowing craftsmanship, texture, and detail to take center stage. Every corner invites discovery, encouraging clients to slow down, explore, and connect with the stories behind the brands.
