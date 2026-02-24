@@ -1,5 +1,6 @@
 import brandExp1 from "@/assets/brand-exp-1.jpg";
 import brandExp2 from "@/assets/brand-exp-2.jpg";
+import tutLogo from "@/assets/tut-logo.png";
 
 const BrandExperienceSection = () => {
   return (
@@ -9,8 +10,8 @@ const BrandExperienceSection = () => {
         <span>Glyfada, Athens</span>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 min-h-[calc(100vh-60px)]">
-        {/* Left image */}
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr_auto] gap-0 min-h-[calc(100vh-60px)]">
+        {/* Left image - large */}
         <div className="hidden lg:block">
           <img
             src={brandExp1}
@@ -20,7 +21,7 @@ const BrandExperienceSection = () => {
         </div>
 
         {/* Center content */}
-        <div className="px-8 md:px-12 py-12 flex flex-col justify-center">
+        <div className="px-8 md:px-16 py-12 flex flex-col justify-center relative">
           <h2 className="section-title mb-8 text-4xl md:text-5xl">
             The Brand Experience
           </h2>
@@ -37,14 +38,16 @@ const BrandExperienceSection = () => {
             <li>Launch events and VIP events for collection launches</li>
             <li>Active social media presence</li>
           </ul>
+
+          <img src={tutLogo} alt="TUT logo" className="absolute bottom-6 right-6 h-8 md:h-10 opacity-80" />
         </div>
 
-        {/* Right image */}
-        <div className="hidden lg:block">
+        {/* Right image - smaller */}
+        <div className="hidden lg:flex items-center pr-8 py-12">
           <img
             src={brandExp2}
             alt="Brand products"
-            className="w-full h-full object-cover"
+            className="w-48 xl:w-56 h-72 xl:h-80 object-cover"
           />
         </div>
       </div>
