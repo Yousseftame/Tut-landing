@@ -12,7 +12,7 @@ const BrandExperienceSection = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr_auto] gap-0 min-h-[calc(100vh-60px)]">
         {/* Left image - large */}
-        <div className="block lg:block overflow-hidden h-64 lg:h-auto">
+        <div className="overflow-hidden h-72 lg:h-auto">
           <img
             src={brandExp1}
             alt="Brand experience"
@@ -43,11 +43,11 @@ const BrandExperienceSection = () => {
         </div>
 
         {/* Right image - smaller */}
-        <div className="flex items-center justify-center py-8 px-4 lg:pr-8 lg:py-12">
+        <div className="overflow-hidden h-72 lg:h-auto lg:flex lg:items-center lg:pr-8 lg:py-12">
           <img
             src={brandExp2}
             alt="Brand products"
-            className="w-full h-64 lg:w-72 xl:w-96 lg:h-[28rem] xl:h-[34rem] object-cover"
+            className="w-full h-full object-cover gallery-image lg:w-72 xl:w-96 lg:h-[32rem] xl:h-[38rem]"
           />
         </div>
       </div>

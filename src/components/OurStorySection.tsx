@@ -26,7 +26,7 @@ const OurStorySection = () => {
         </div>
 
         {/* Right: Image */}
-        <div className="hidden lg:block overflow-hidden">
+        <div className="block overflow-hidden h-64 lg:h-auto">
           <img
             src={storyImage}
             alt="TUT Store crafts and products"
