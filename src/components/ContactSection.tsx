@@ -40,7 +40,7 @@ const ContactSection = () => {
         </div>
 
         {/* Right: Image */}
-        <div className="hidden lg:block overflow-hidden">
+        <div className="block lg:block overflow-hidden h-64 lg:h-auto">
           <img
             src={contactImage}
             alt="TUT Store products"
