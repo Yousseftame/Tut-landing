@@ -10,10 +10,10 @@ const OurStorySection = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 min-h-[calc(100vh-60px)]">
         {/* Left: Title + Text */}
-        <div className="lg:col-span-2 px-8 md:px-16 py-12 flex flex-col justify-start">
+        <div className="lg:col-span-2 px-8 md:px-16 py-12 flex flex-col justify-center">
           <h2 className="section-title mb-12 animate-on-scroll">Our Story</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="body-text">
               Centuries after Pharaohs carved their names into stone, a new chapter of Egyptian craft begins on a sun-washed corner of Athens. Tut Store was born from a single question: What if the scents, textures, and spirit of Egypt could travel as lightly as a suitcase and land in every curious heart? Its founders are the designers, storytellers, and market traders who gathered treasures from workshops along the Nile: hand-blown glass that traps Cairo's sunset, cotton woven on ancient looms in the Delta, desert spices ground to a rhythm older than song.
             </div>

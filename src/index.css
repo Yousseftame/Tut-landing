@@ -92,7 +92,7 @@
   }
 
   .body-text {
-    @apply text-sm md:text-base leading-relaxed text-muted-foreground;
+    @apply text-base md:text-lg leading-relaxed text-muted-foreground;
     text-align: justify;
   }
 
