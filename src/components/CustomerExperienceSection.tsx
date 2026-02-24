@@ -7,7 +7,7 @@ const CustomerExperienceSection = () => {
     <section className="page-section bg-background">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr_auto] gap-0 min-h-[calc(100vh-60px)]">
         {/* Left image - large */}
-        <div className="overflow-hidden h-72 lg:h-auto">
+        <div className="overflow-hidden h-[50vw] lg:h-auto">
           <img
             src={custExp1}
             alt="Customer experience"
@@ -37,7 +37,7 @@ const CustomerExperienceSection = () => {
         </div>
 
         {/* Right image - smaller */}
-        <div className="overflow-hidden h-72 lg:h-auto lg:flex lg:items-center lg:pr-8 lg:py-12">
+        <div className="overflow-hidden h-[50vw] lg:h-auto lg:flex lg:items-center lg:pr-8 lg:py-12">
           <img
             src={custExp2}
             alt="Store display"
