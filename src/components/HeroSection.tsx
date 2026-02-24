@@ -1,4 +1,5 @@
 import tutLogo from "@/assets/tut-logo.png";
+import heroImage from "@/assets/hero-image.jpg";
 
 const HeroSection = () => {
   return (
@@ -17,7 +18,7 @@ const HeroSection = () => {
         <div
           className="w-full h-full min-h-[50vh] bg-cover bg-center"
           style={{
-            backgroundImage: `url(https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=80)`,
+            backgroundImage: `url(${heroImage})`,
           }}
         />
       </div>
