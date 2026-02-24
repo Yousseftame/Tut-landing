@@ -10,7 +10,7 @@ import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
   return (
-    <div className="bg-background">
+    <div className="bg-background space-y-16">
       <HeroSection />
       <OurStorySection />
       <OurVisionSection />
