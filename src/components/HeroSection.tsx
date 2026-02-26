@@ -14,9 +14,9 @@ const HeroSection = () => {
           Gylfada, Athens
         </p>
       </div>
-      <div className="flex-1 w-full overflow-hidden">
+      <div className="w-full overflow-hidden">
         <div
-          className="w-full h-full min-h-[50vh] bg-cover bg-center"
+          className="w-full h-[35vh] md:h-[50vh] bg-cover bg-center"
           style={{
             backgroundImage: `url(${heroImage})`,
           }}
