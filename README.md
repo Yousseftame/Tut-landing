@@ -1,73 +1,113 @@
-# Welcome to your Lovable project
+TUT — Contemporary Egyptian Fashion & Lifestyle Store
+Overview
 
-## Project info
+TUT is a curated fashion and lifestyle concept store celebrating contemporary Egyptian creativity.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Spanning two thoughtfully designed floors, the space is intentionally minimal and modern, allowing craftsmanship, texture, and detail to take center stage. Every corner invites discovery, encouraging visitors to slow down, explore, and connect with the stories behind each brand.
 
-## How can I edit this code?
+At TUT, retail becomes more than shopping — it becomes an immersive cultural experience.
 
-There are several ways of editing your application.
+In-Store Categories
 
-**Use Lovable**
+Jewelry
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Ready-to-Wear
 
-Changes made via Lovable will be committed automatically to this repo.
+Footwear
 
-**Use your preferred IDE**
+Handbags
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Home Décor
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Project Information
 
-Follow these steps:
+This repository contains the source code for the TUT website.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+The project is built using modern frontend technologies to ensure high performance, scalability, and maintainability.
+
+Tech Stack
+
+Vite
+
+React
+
+TypeScript
+
+Tailwind CSS
+
+shadcn/ui
+
+Getting Started
+Prerequisites
+
+Make sure you have installed:
+
+Node.js (LTS version recommended)
+
+npm
+
+You can download Node.js from:
+https://nodejs.org/
+
+Installation & Local Development
+
+Clone the repository:
+
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+
+Navigate into the project directory:
+
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Install dependencies:
+
+npm install
+
+
+Start the development server:
+
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The application will run locally with hot-reload enabled.
 
-**Use GitHub Codespaces**
+Production Build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+To generate a production-ready build:
 
-## What technologies are used for this project?
+npm run build
 
-This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+To preview the production build locally:
 
-## How can I deploy this project?
+npm run preview
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Deployment
 
-## Can I connect a custom domain to my Lovable project?
+After building the project, deploy the generated dist folder to your preferred hosting provider.
 
-Yes, you can!
+Supported platforms include:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Vercel
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Netlify
+
+Render
+
+Any static hosting provider
+
+Brand Philosophy
+
+TUT is built around the idea of thoughtful curation.
+
+The space balances sophistication with comfort, offering a warm and welcoming environment guided by a passionate and highly trained team.
+
+Each visit is designed to feel personal, refined, and memorable — celebrating contemporary Egyptian design through a carefully curated retail journey.
+
+License
+
+This project is proprietary and owned by TUT.
+
+All rights reserved
