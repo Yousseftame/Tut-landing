@@ -1,26 +1,51 @@
 import { useState } from "react";
 import {
-  Dashboard,
-  MenuBook,
-  Image,
+  LayoutDashboard,
+  BookOpen,
+  Eye,
+  MapPin,
+  ShoppingBag,
+  Images,
+  Sparkles,
+  Star,
   Mail,
-  Settings,
-  Logout,
-} from "@mui/icons-material";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+  LogOut,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useAuth } from "../../store/AuthContext/AuthContext";
 
-const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false);
-  const [activeItem, setActiveItem] = useState("dashboard");
-  const navigate = useNavigate();
-  const { logout } = useAuth();
+const menuItems = [
+  { id: "home", label: "Home", icon: LayoutDashboard, path: "/admin/home" },
+  { id: "story", label: "Our Story", icon: BookOpen, path: "/admin/story" },
+  { id: "vision", label: "Our Vision", icon: Eye, path: "/admin/vision" },
+  { id: "location", label: "Location", icon: MapPin, path: "/admin/location" },
+  { id: "store", label: "The Store", icon: ShoppingBag, path: "/admin/store" },
+  { id: "gallery", label: "Gallery", icon: Images, path: "/admin/gallery" },
+  {
+    id: "brand-experience",
+    label: "Brand Experience",
+    icon: Sparkles,
+    path: "/admin/brand-experience",
+  },
+  {
+    id: "customer-experience",
+    label: "Customer Experience",
+    icon: Star,
+    path: "/admin/customer-experience",
+  },
+  { id: "contactus", label: "Messages", icon: Mail, path: "/admin/contactus" },
+];
 
+export default function Sidebar() {
+  const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { logout } = useAuth();
   let timerInterval: ReturnType<typeof setInterval>;
 
-  // handle logout
   const handleLogout = async () => {
     Swal.fire({
       title: "Logging out...",
@@ -30,19 +55,12 @@ const Sidebar = () => {
       allowOutsideClick: false,
       didOpen: () => {
         Swal.showLoading();
-
-        const popup = Swal.getPopup();
-        const timerEl = popup?.querySelector("b");
-
+        const timerEl = Swal.getPopup()?.querySelector("b");
         timerInterval = setInterval(() => {
-          if (timerEl) {
-            timerEl.textContent = `${Swal.getTimerLeft()}`;
-          }
+          if (timerEl) timerEl.textContent = `${Swal.getTimerLeft()}`;
         }, 100);
       },
-      willClose: () => {
-        clearInterval(timerInterval);
-      },
+      willClose: () => clearInterval(timerInterval),
     }).then(async (result) => {
       if (result.dismiss === Swal.DismissReason.timer) {
         await logout();
@@ -51,151 +69,295 @@ const Sidebar = () => {
     });
   };
 
-  const menuItems = [
-    {
-      id: "Home",
-      label: "Home",
-      icon: Dashboard,
-      path: "/admin/home",
-    },
-    {
-      id: "Our Story",
-      label: "Our Story",
-      icon: MenuBook,
-      path: "/admin/story",
-    },
-    {
-      id: "gallery",
-      label: "Gallery",
-      icon: Image,
-      path: "/admin/admin-gallery",
-    },
-    {
-      id: "section",
-      label: "Home Sections",
-      icon: Settings,
-      path: "/admin/home-sections",
-    },
-    { id: "contact", label: "Messages", icon: Mail, path: "/admin/messages" },
-  ];
+  const W = collapsed ? "5.5rem" : "19rem";
 
   return (
-    <div className="flex h-screen">
-      {/* Sidebar */}
+    <aside
+      style={{
+        width: W,
+        minWidth: W,
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        background: "#E8DDD2",
+        borderRight: "1px solid rgba(160,125,90,0.25)",
+        transition: "width 0.3s ease, min-width 0.3s ease",
+        position: "relative",
+        overflow: "visible",
+        flexShrink: 0,
+      }}
+    >
+      {/* ── LOGO AREA ── */}
       <div
-        className={`text-stone-50 transition-all duration-400 ease-in-out relative ${
-          collapsed ? "w-20" : "w-72"
-        }`}
         style={{
-          backgroundColor: "#0E302A",
+          height: "7rem",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: collapsed ? "0" : "0 1.5rem",
+          borderBottom: "1px solid rgba(140,105,70,0.2)",
+          flexShrink: 0,
         }}
       >
-        {/* Logo Section */}
-        <div className="h-24 flex items-center justify-center px-6 border-b border-[#D7CDC1]/10">
-          {!collapsed ? (
-            <div className="flex flex-col items-center gap-2">
-              <img
-                src="/tut-logoo.png"
-                alt="tut"
-                className="h-22 object-contain"
-              />
-            </div>
-          ) : (
-            <div className="w-full flex items-center justify-center">
-              <span className="text-5xl  text-[#D7CDC1]">R</span>
-            </div>
-          )}
-        </div>
-
-        {/* Menu Items */}
-        <nav className="mt-6 px-4 space-y-1 overflow-hidden">
-          {menuItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeItem === item.id;
-
-            return (
-              <button
-                key={item.id}
-                onClick={() => {
-                  setActiveItem(item.id);
-                  navigate(item.path);
-                }}
-                className={`w-full flex items-center ${collapsed ? "justify-center px-0" : "gap-4 px-5"} py-3 rounded-lg transition-all duration-200 group relative ${
-                  isActive ? "bg-[#D7CDC1]/15" : "hover:bg-[#D7CDC1]/5"
-                }`}
-              >
-                {/* Active Indicator */}
-                {isActive && !collapsed && (
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-[#D7CDC1] rounded-r"></div>
-                )}
-
-                <div className="relative flex-shrink-0">
-                  <Icon
-                    className={`transition-colors duration-200 ${
-                      isActive
-                        ? "text-[#D7CDC1]"
-                        : "text-[#D7CDC1]/50 group-hover:text-[#D7CDC1]/80"
-                    }`}
-                    style={{ fontSize: "20px" }}
-                  />
-
-                 
-                </div>
-
-                {!collapsed && (
-                  <div className="flex items-center gap-3 flex-1 min-w-0">
-                    <span
-                      className={`text-[19px] tracking-wide transition-colors duration-200 whitespace-nowrap overflow-hidden text-ellipsis ${
-                        isActive
-                          ? "text-[#D7CDC1] font-bold"
-                          : "text-[#D7CDC1]/60 group-hover:text-[#D7CDC1]/90"
-                      }`}
-                      style={{ fontFamily: "Clash Display,  sans-serif" }}
-                    >
-                      {item.label}
-                    </span>
-
-                 
-                  </div>
-                )}
-              </button>
-            );
-          })}
-        </nav>
-
-        {/* Bottom Section */}
-        <div className="absolute bottom-0 left-0 right-0 border-t border-[#D7CDC1]/10 overflow-hidden">
-          <div className="px-4 py-4">
-            <button
-              onClick={handleLogout}
-              className={`w-full flex items-center ${collapsed ? "justify-center px-0" : "gap-4 px-5"} py-3 rounded-lg hover:bg-[#D7CDC1]/5 transition-all duration-200 group`}
+        {collapsed ? (
+          /* Collapsed: just a styled "T" lettermark */
+          <div
+            style={{
+              width: "2.6rem",
+              height: "2.6rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "'Bebas Neue', sans-serif",
+                fontSize: "1.5rem",
+                color: "#3C2C20",
+                letterSpacing: "0.04em",
+                lineHeight: 1,
+              }}
             >
-              <Logout
-                className="transition-colors duration-200 flex-shrink-0 text-[#D7CDC1]/50 group-hover:text-red-400/80"
-                style={{ fontSize: "20px" }}
+              Tut
+            </span>
+          </div>
+        ) : (
+          /* Expanded: logo image */
+          <img
+            src="/tut-logoo-removebg-preview.png"
+            alt="Tut Studio"
+            style={{
+              height: "4.5rem",
+              width: "auto",
+              objectFit: "contain",
+            }}
+          />
+        )}
+      </div>
+
+      {/* ── SECTION LABEL ── */}
+     
+
+      {/* ── NAV LINKS ── */}
+      <nav
+        style={{
+          flex: 1,
+          overflowY: "auto",
+          overflowX: "clip",
+          padding: collapsed ? "1rem 0.65rem" : "0.75rem 1rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.15rem",
+        }}
+      >
+        {menuItems.map((item) => {
+          const isActive =
+            location.pathname === item.path ||
+            location.pathname.startsWith(item.path + "/");
+          const Icon = item.icon;
+
+          return (
+            <button
+              key={item.id}
+              onClick={() => navigate(item.path)}
+              title={collapsed ? item.label : undefined}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: collapsed ? 0 : "0.9rem",
+                justifyContent: collapsed ? "center" : "flex-start",
+                width: "100%",
+                padding: collapsed ? "0.85rem 0" : "0.75rem 1rem",
+                background: isActive ? "hsl(25, 30%, 18%)" : "transparent",
+                border: "none",
+                cursor: "pointer",
+                position: "relative",
+                transition: "background 0.18s",
+                textAlign: "left",
+                borderRadius: 0,
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive)
+                  (e.currentTarget as HTMLElement).style.background =
+                    "rgba(44,26,14,0.06)";
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive)
+                  (e.currentTarget as HTMLElement).style.background =
+                    "transparent";
+              }}
+            >
+              {/* Active right-edge glow line */}
+              {isActive && !collapsed && (
+                <div
+                  style={{
+                    position: "absolute",
+                    right: 0,
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    width: "3px",
+                    height: "1.8rem",
+                    background: "#C4A882",
+                    borderRadius: "2px 0 0 2px",
+                  }}
+                />
+              )}
+
+              {/* Icon */}
+              <Icon
+                size={20}
+                strokeWidth={isActive ? 2 : 1.6}
+                style={{
+                  color: isActive ? "#D7C3A8" : "rgba(80,55,35,0.55)",
+                  flexShrink: 0,
+                  transition: "color 0.15s",
+                }}
               />
+
+              {/* Label */}
               {!collapsed && (
                 <span
-                  className="text-[15px] tracking-wide text-[#D7CDC1]/60 group-hover:text-red-400/90 transition-colors duration-200 whitespace-nowrap overflow-hidden text-ellipsis"
-                  style={{ fontFamily: "Clash Display,  sans-serif" }}
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: "0.99rem",
+                    fontWeight: isActive ? 700 : 500,
+                    letterSpacing: isActive ? "0.01em" : "0",
+                    color: isActive ? "#F0EAE0" : "rgba(44,26,14,0.65)",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    transition: "color 0.15s, font-weight 0.15s",
+                  }}
                 >
-                  Logout
+                  {item.label}
                 </span>
               )}
             </button>
-          </div>
-        </div>
+          );
+        })}
+      </nav>
 
-        {/* Toggle Button */}
+      {/* ── DIVIDER ── */}
+      <div
+        style={{
+          height: "1px",
+          background: "rgba(140,105,70,0.2)",
+          margin: "0 1rem",
+          flexShrink: 0,
+        }}
+      />
+
+      {/* ── LOGOUT ── */}
+      <div
+        style={{
+          padding: collapsed ? "0.75rem 0.65rem" : "0.75rem 1rem",
+          flexShrink: 0,
+        }}
+      >
         <button
-          onClick={() => setCollapsed(!collapsed)}
-          className="absolute -right-3 top-28 bg-[#0E302A] border border-[#D7CDC1]/20 rounded-full p-1.5 text-[#D7CDC1]/60 hover:text-[#D7CDC1] hover:border-[#D7CDC1]/40 transition-all duration-200 shadow-lg"
+          onClick={handleLogout}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: collapsed ? 0 : "0.9rem",
+            justifyContent: collapsed ? "center" : "flex-start",
+            width: "100%",
+            padding: collapsed ? "0.85rem 0" : "0.75rem 1rem",
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+            transition: "background 0.18s",
+            borderRadius: 0,
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLElement).style.background =
+              "rgba(200,50,50,0.06)";
+            const icon = e.currentTarget.querySelector(
+              ".logout-icon",
+            ) as SVGElement;
+            const label = e.currentTarget.querySelector(
+              ".logout-label",
+            ) as HTMLElement;
+            if (icon) (icon as any).style.color = "#e05555";
+            if (label) label.style.color = "#e05555";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLElement).style.background = "transparent";
+            const icon = e.currentTarget.querySelector(
+              ".logout-icon",
+            ) as SVGElement;
+            const label = e.currentTarget.querySelector(
+              ".logout-label",
+            ) as HTMLElement;
+            if (icon) (icon as any).style.color = "rgba(80,55,35,0.45)";
+            if (label) label.style.color = "rgba(44,26,14,0.5)";
+          }}
         >
-          {collapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
+          <LogOut
+            size={20}
+            strokeWidth={1.6}
+            className="logout-icon"
+            style={{
+              color: "rgba(80,55,35,0.45)",
+              flexShrink: 0,
+              transition: "color 0.15s",
+            }}
+          />
+          {!collapsed && (
+            <span
+              className="logout-label"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "0.92rem",
+                fontWeight: 500,
+                color: "rgba(44,26,14,0.5)",
+                transition: "color 0.15s",
+              }}
+            >
+              Logout
+            </span>
+          )}
         </button>
       </div>
-    </div>
-  );
-};
 
-export default Sidebar;
+      {/* ── COLLAPSE TOGGLE ── */}
+      <button
+        onClick={() => setCollapsed((v) => !v)}
+        style={{
+          position: "absolute",
+          right: "-0.85rem",
+          top: "7.75rem",
+          width: "1.7rem",
+          height: "1.7rem",
+          borderRadius: "50%",
+          background: "#E8DDD2",
+          border: "1px solid rgba(140,105,70,0.3)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          cursor: "pointer",
+          color: "rgba(100,75,55,0.55)",
+          zIndex: 20,
+          transition: "border-color 0.15s, color 0.15s, box-shadow 0.15s",
+          boxShadow: "0 2px 8px rgba(44,26,14,0.08)",
+        }}
+        onMouseEnter={(e) => {
+          const el = e.currentTarget as HTMLElement;
+          el.style.borderColor = "#C4A882";
+          el.style.color = "hsl(25,30%,18%)";
+          el.style.boxShadow = "0 2px 12px rgba(44,26,14,0.15)";
+        }}
+        onMouseLeave={(e) => {
+          const el = e.currentTarget as HTMLElement;
+          el.style.borderColor = "rgba(196,168,130,0.35)";
+          el.style.color = "rgba(100,75,55,0.55)";
+          el.style.boxShadow = "0 2px 8px rgba(44,26,14,0.08)";
+        }}
+      >
+        {collapsed ? <ChevronRight size={13} /> : <ChevronLeft size={13} />}
+      </button>
+    </aside>
+  );
+}
