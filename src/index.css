@@ -98,5 +98,6 @@
 
   .page-section {
     @apply min-h-screen relative;
+    
   }
 }

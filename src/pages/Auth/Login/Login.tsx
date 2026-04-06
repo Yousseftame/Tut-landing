@@ -81,7 +81,7 @@ export default function Login() {
             fontSize: "1rem",
           }}
         >
-          Sign in to manage your studio
+          Sign in to managae your Studio
         </p>
       </div>
 
